@@ -1,2 +1,2 @@
 
-/// <reference types="sdk-passkeyring" />
+ declare module 'sdk-passkeyring';
