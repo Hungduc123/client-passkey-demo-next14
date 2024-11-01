@@ -1,6 +1,5 @@
 "use client";
 import { useConnect, PasskeyProvider, ButtonConnect } from "sdk-passkeyring";
-
 export default function Home() {
   const { isConnected } = useConnect();
 
@@ -8,8 +7,6 @@ export default function Home() {
   return (
     <div>
       <PasskeyProvider>
-        <span />
-
         <ButtonConnect />
       </PasskeyProvider>
     </div>
