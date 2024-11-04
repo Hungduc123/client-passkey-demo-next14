@@ -2444,10 +2444,10 @@ scheduler@^0.23.2:
   dependencies:
     loose-envify "^1.1.0"
 
-sdk-passkeyring@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/sdk-passkeyring/-/sdk-passkeyring-1.0.6.tgz#eaf89819d2cac595b321f8250580c9053ec967d6"
-  integrity sha512-TIHucuy0sn3JigP/saFnvVTBwqB4JRm9oPyOkxTam7Jn7QBG7RW2M79DbUtX0HpG7Ix0XoEbvmbcwFzW67aQxw==
+sdk-passkeyring@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/sdk-passkeyring/-/sdk-passkeyring-1.0.7.tgz#1b69c1933978762b733e8762eba078651c5e5808"
+  integrity sha512-Q0Vxrz6p0I5QFXJGCpS63QwPPN+xYSZtkSxc85bsDwRg9QQaKcoDN3bzSVQU3MM6Zc9vt3LJ7xT8e93m153bzA==
   dependencies:
     "@peculiar/asn1-ecc" "^2.3.14"
     "@peculiar/asn1-schema" "^2.3.13"
