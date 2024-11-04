@@ -716,10 +716,15 @@ camelcase-css@^2.0.1:
   resolved "https://registry.yarnpkg.com/camelcase-css/-/camelcase-css-2.0.1.tgz#ee978f6947914cc30c6b44741b6ed1df7f043fd5"
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
-caniuse-lite@^1.0.30001579, caniuse-lite@^1.0.30001646, caniuse-lite@^1.0.30001669:
+caniuse-lite@^1.0.30001579:
   version "1.0.30001676"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001676.tgz#fe133d41fe74af8f7cc93b8a714c3e86a86e6f04"
   integrity sha512-Qz6zwGCiPghQXGJvgQAem79esjitvJ+CxSbSQkW9H/UX5hg8XM88d4lp2W+MEQ81j+Hip58Il+jGVdazk1z9cw==
+
+caniuse-lite@^1.0.30001646, caniuse-lite@^1.0.30001669:
+  version "1.0.30001677"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001677.tgz#27c2e2c637e007cfa864a16f7dfe7cde66b38b5f"
+  integrity sha512-fmfjsOlJUpMWu+mAAtZZZHz7UEwsUxIIvu1TJfO1HqFQvB/B+ii0xr9B5HpbZY/mC4XZ8SvjHJqtAY6pDPQEog==
 
 chalk@^4.0.0:
   version "4.1.2"
@@ -2278,7 +2283,7 @@ prelude-ls@^1.2.1:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
 
-prop-types@^15.8.1:
+prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -2326,6 +2331,13 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-new-window@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-new-window/-/react-new-window-1.0.1.tgz#38f97ac5a38a14d2ac8263e2427fcbd5f84e1d64"
+  integrity sha512-pLQlq5NzMxNocXKPIwkXfAxSOZmbpWSbP8QrxCbunpHcx4k249YChkk7l/7P4jjwxq3dI/xwL3nVHLp6h5zM3w==
+  dependencies:
+    prop-types "^15.7.2"
 
 react@^18:
   version "18.3.1"
@@ -2444,10 +2456,10 @@ scheduler@^0.23.2:
   dependencies:
     loose-envify "^1.1.0"
 
-sdk-passkeyring@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/sdk-passkeyring/-/sdk-passkeyring-1.0.8.tgz#978273e9c0f311f48064d6f6e8a9f00a6f7c248d"
-  integrity sha512-N+nmVOo1wsCk6zVic9OZhq+2I5MjE5MROPFkJuPRhbuoGV8bagK2y7VpH5J2S5xPXWuwXHWyaaRnKZLo/pJovw==
+sdk-passkeyring@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/sdk-passkeyring/-/sdk-passkeyring-1.0.12.tgz#e798c31a2e1ae5ea150c6be504d44c3a9c58674c"
+  integrity sha512-jxeugW4yFrZjgwH455BaYVdZaWkrBkiSHVS7YzGMPEgcGlHwl3KL9Tl014RzbPmNxnP0LsdYWu87kIYSVO5yDg==
   dependencies:
     "@peculiar/asn1-ecc" "^2.3.14"
     "@peculiar/asn1-schema" "^2.3.13"
@@ -2456,6 +2468,7 @@ sdk-passkeyring@^1.0.8:
     autoprefixer "^10.4.20"
     axios "^1.7.7"
     postcss "^8.4.47"
+    react-new-window "^1.0.1"
     tailwindcss "^3.4.14"
     viem "^2.21.16"
 
@@ -2853,9 +2866,9 @@ util-deprecate@^1.0.2:
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
 
 viem@^2.21.16:
-  version "2.21.38"
-  resolved "https://registry.yarnpkg.com/viem/-/viem-2.21.38.tgz#607b25483b363c6f1a807f0fc39fb2f1e7d42d5a"
-  integrity sha512-MxhURy+F3eRtxkOoj7YdJTStJxqnWcP0MQZycVsxsVB4eZLKZPZfh7AgpfPjWHmPHmeVZcOqaGzFTmuPpqp06w==
+  version "2.21.40"
+  resolved "https://registry.yarnpkg.com/viem/-/viem-2.21.40.tgz#d73a515e3eaf2a7ec2394d1de3d8409bf4bd2e21"
+  integrity sha512-no/mE3l7B0mdUTtvO7z/cTLENttQ/M7+ombqFGXJqsQrxv9wrYsTIGpS3za+FA5a447hY+x9D8Wxny84q1zAaA==
   dependencies:
     "@adraffy/ens-normalize" "1.11.0"
     "@noble/curves" "1.6.0"
