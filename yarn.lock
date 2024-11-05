@@ -906,9 +906,9 @@ eastasianwidth@^0.2.0:
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 electron-to-chromium@^1.5.41:
-  version "1.5.50"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.50.tgz#d9ba818da7b2b5ef1f3dd32bce7046feb7e93234"
-  integrity sha512-eMVObiUQ2LdgeO1F/ySTXsvqvxb6ZH2zPGaMYsWzRDdOddUa77tdmI0ltg+L16UpbWdhPmuF3wIQYyQq65WfZw==
+  version "1.5.51"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.51.tgz#bb99216fed4892d131a8585a8593b00739310163"
+  integrity sha512-kKeWV57KSS8jH4alKt/jKnvHPmJgBxXzGUSbMd4eQF+iOsVPl7bz2KUmu6eo80eMP8wVioTfTyTzdMgM15WXNg==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -2456,10 +2456,10 @@ scheduler@^0.23.2:
   dependencies:
     loose-envify "^1.1.0"
 
-sdk-passkeyring@@latest:
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/sdk-passkeyring/-/sdk-passkeyring-1.0.15.tgz#0a65e9528915c0855de570b76c6e5d3211dc6099"
-  integrity sha512-fRmbtCIsbZpyrmMvsbSAzjOauXnOHgt+jshjBwVcpCNN8lEQUYgtZnqoE8iDgdoVpLAjE7mD8fx7UVtHLHfiZQ==
+sdk-passkeyring@^1.0.17:
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/sdk-passkeyring/-/sdk-passkeyring-1.0.17.tgz#4db74f5a09545294f5fdb1a772c3e72855f5339b"
+  integrity sha512-2021bRM+MrN7RyKSzcnK7vVPzMgt1bFl4NvDPlPAV+xlWnCCx8Nn7L9nWP8TRN1PBfIoTI5z5VpgFv+gvtoVLw==
   dependencies:
     "@peculiar/asn1-ecc" "^2.3.14"
     "@peculiar/asn1-schema" "^2.3.13"
