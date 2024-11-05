@@ -7,25 +7,47 @@ const ConnectPasskey = () => {
   const { address } = account;
 
   return (
-    <div>
+    <div 
+    style={{
+      width: '100vw',
+      height: "100dvh",
+      display: 'flex',
+      alignItems: "center",
+      justifyContent: "center",
+    }}>
       {isConnected ? (
-        <div>
+        <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: 'center',
+          gap: '20px',
+        }}
+        >
           <h1>Connected</h1>
-          <button
+          <div>
+              <button
             onClick={() => {
               onConnect();
             }}
           >
             Address: {address}
           </button>
-          <br />
-          <button
+          </div>
+        
+      
+          <div>
+              <button
             onClick={() => {
               onDisconnect();
             }}
           >
-            disConnect
+            Disconnect
           </button>
+          </div>
+        
         </div>
       ) : (
         <button onClick={onConnect}>Connect</button>
