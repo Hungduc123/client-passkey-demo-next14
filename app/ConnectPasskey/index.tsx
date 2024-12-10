@@ -9,8 +9,8 @@ const ConnectPasskey = () => {
   return (
     <div
       style={{
-        width: "100vw",
-        height: "100dvh",
+        // width: "100vw",
+        // height: "100dvh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
