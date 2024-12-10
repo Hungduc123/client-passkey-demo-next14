@@ -14,7 +14,6 @@ export default function Home() {
       <QueryClientProvider client={queryClient}>
           <PasskeyProvider>
           <ConnectPasskey />
-          <Transaction />
           <Profile />
         </PasskeyProvider>
       </QueryClientProvider>
