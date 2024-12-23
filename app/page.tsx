@@ -1,15 +1,15 @@
 "use client";
 import { Profile } from "@/app/Components/Profile";
+import useClientSide from "@/app/hooks/useClientSide";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PasskeyProvider } from "sdk-v2-egglepasskeywallet";
 const queryClient = new QueryClient();
 export default function Home() {
+  const isClient = useClientSide();
   return (
     <div>
       <QueryClientProvider client={queryClient}>
-        <PasskeyProvider config={{}}>
-          <Profile />
-        </PasskeyProvider>
+        <PasskeyProvider config={{}}>{isClient && <Profile />}</PasskeyProvider>
       </QueryClientProvider>
     </div>
   );
