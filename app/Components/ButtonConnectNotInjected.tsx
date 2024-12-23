@@ -1,6 +1,6 @@
 //step 1 : create button to connect
 import React from "react";
-import { infoWallet } from "sdk-passkeyring";
+import { infoWallet } from "sdk-v2-egglepasskeywallet";
 import { useConnect, useConnectors, useSwitchChain } from "wagmi";
 
 const ButtonConnectWallet = () => {
