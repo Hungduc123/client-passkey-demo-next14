@@ -7,6 +7,7 @@ import ButtonConnectWallet from "@/app/Components/ButtonConnectNotInjected";
 import { isWeb3Injected } from "sdk-v2-keyringpasskeywallet";
 import { useAccount } from "wagmi";
 import MyModal from "@/app/Components/Modal";
+import SignTypeData from "@/app/Components/SignTypeData";
 
 export function Profile() {
   const account = useAccount();
@@ -20,6 +21,7 @@ export function Profile() {
           <SendTransaction />
           <WriteContract />
           <SignMessage />
+          <SignTypeData/>
         </>
       )}
 
