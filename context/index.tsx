@@ -6,7 +6,7 @@ import { mainnet, arbitrum, polygon, optimism, type AppKitNetwork, base, sepolia
 import React, { type ReactNode } from 'react'
 import { cookieToInitialState, WagmiProvider, type Config } from 'wagmi'
 
-import { cookieStorage, createStorage, http } from '@wagmi/core'
+import { cookieStorage, createStorage } from '@wagmi/core'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
 
 // Get projectId from https://cloud.reown.com
@@ -19,7 +19,7 @@ if (!projectId) {
 // export const networks: [AppKitNetwork, ...AppKitNetwork[]] = [mainnet, arbitrum, polygon, optimism]
 // export const networks: [AppKitNetwork, ...AppKitNetwork[]] = [base, polygon]
 // export const networks: [AppKitNetwork, ...AppKitNetwork[]] = [ mainnet, sepolia]
-export const networks: [AppKitNetwork, ...AppKitNetwork[]] = [polygon, arbitrum, mainnet, optimism, bsc]
+export const networks: [AppKitNetwork, ...AppKitNetwork[]] = [polygon, arbitrum, mainnet, optimism, bsc,base, sepolia]
 
 //Set up the Wagmi Adapter (Config)
 export const wagmiAdapter = new WagmiAdapter({
@@ -50,7 +50,7 @@ const metadata = {
 }
 
 // Create the modal
-const modal = createAppKit({
+createAppKit({
   adapters: [wagmiAdapter],
   projectId,
   enableCoinbase: true,

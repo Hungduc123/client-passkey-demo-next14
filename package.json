@@ -19,7 +19,6 @@
     "next": "14.2.16",
     "react": "^18",
     "react-dom": "^18",
-    "sdk-v2-egglegamewallet-test": "^2.4.16",
     "viem": "^2.21.54",
     "wagmi": "^2.13.4"
   },
