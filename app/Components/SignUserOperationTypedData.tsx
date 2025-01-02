@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import { signTypedData } from "@wagmi/core";
 import { config, wagmiAdapter } from "@/context";
