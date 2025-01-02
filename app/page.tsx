@@ -9,7 +9,9 @@ export default function Home() {
   return (
     <div>
       <QueryClientProvider client={queryClient}>
-        <PasskeyProvider config={{}}>{isClient && <Profile />}</PasskeyProvider>
+        <PasskeyProvider config={{
+        chainIdDefault: 137,
+        }}>{isClient && <Profile />}</PasskeyProvider>
       </QueryClientProvider>
     </div>
   );
