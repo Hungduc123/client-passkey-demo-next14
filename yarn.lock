@@ -6099,10 +6099,10 @@ scrypt-js@3.0.1:
   resolved "https://registry.yarnpkg.com/scrypt-js/-/scrypt-js-3.0.1.tgz#d314a57c2aef69d1ad98a138a21fe9eafa9ee312"
   integrity sha512-cdwTTnqPu0Hyvf5in5asVdZocVDTNRmR7XEcJuIzMjJeSHybHl7vpB66AzwTaIg6CLSbtjcxc8fqcySfnTkccA==
 
-sdk-v2-egglegamewallet-test@^2.4.16:
-  version "2.4.16"
-  resolved "https://registry.yarnpkg.com/sdk-v2-egglegamewallet-test/-/sdk-v2-egglegamewallet-test-2.4.16.tgz#50860a4dbd884abc95c60099ff411a38ddeb6782"
-  integrity sha512-gg3o4fpHjJoq4VGN3BBKQr6nSn7n973Jby3zSIRYbGFhmnq1cSom1TqhzJ/oGtWNt2L/011NUIxeQY153bOYfg==
+sdk-v2-egglegamewallet-test@^2.4.17:
+  version "2.4.17"
+  resolved "https://registry.yarnpkg.com/sdk-v2-egglegamewallet-test/-/sdk-v2-egglegamewallet-test-2.4.17.tgz#3b0f616bcda51497cbc860e00a5000075bae49d3"
+  integrity sha512-sQPCP9sAeK9rwNvg247/K7YAAennML2hSZFqYVQjd7471/jCwp/sjWuflao3QXYQ1CuDMWoLQuk23Bid/ny+2w==
   dependencies:
     autoprefixer "^10.4.20"
     bignumber.js "^9.1.2"
