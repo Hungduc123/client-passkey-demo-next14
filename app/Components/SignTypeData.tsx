@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
-import { signTypedData } from "@wagmi/core";
+import { getAccount, signTypedData } from "@wagmi/core";
 import { config, wagmiAdapter } from "@/context";
 import { verifyMessage } from "@ambire/signature-validator";
 import { ethers } from "ethers";
@@ -16,8 +16,7 @@ const SignTypeData = () => {
   const chainId = getChainId(config);
   console.log("🚀 ~ chainId:", chainId);
 
-  const message = "Hello world";
-  const address = "0x109105af554c00c2c419686c9e969e1fb2b6beba";
+  const address = getAccount(config).address;
 
   const provider = new ethers.providers.JsonRpcProvider(listProvider[chainId]);
   const onSignTypeData = async () => {
