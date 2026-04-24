@@ -7,6 +7,7 @@ import ButtonConnectWallet from "@/app/Components/ButtonConnectNotInjected";
 import { isWeb3Injected } from "sdk-v2-egglegamewallet";
 import { useAccount } from "wagmi";
 import SignTypeData from "@/app/Components/SignTypeData";
+import KeyringCore from "@/app/Components/KeyringCore";
 
 export function Profile() {
   const account = useAccount();
@@ -17,6 +18,7 @@ export function Profile() {
       <appkit-button />
       {isConnected && (
         <>
+        <KeyringCore />
           <SendTransaction />
           <WriteContract />
           <SignMessage />
