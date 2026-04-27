@@ -1,16 +1,25 @@
-import React, { use, useEffect } from "react";
-import { AgentCore, KnowledgeBaseEntry } from "keyring-agent-core";
-import { Input } from "antd";
+import React, { useEffect, useState } from "react";
+import {
+  AgentCore,
+  KnowledgeBaseEntry,
+  ingestKnowledgeBase,
+} from "keyring-agent-core";
+import { Input, Upload, Button, message, Space } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
+import type { UploadProps } from "antd";
 import { getChainId } from "wagmi/actions";
 import { config } from "@/context";
 const faqData: KnowledgeBaseEntry[] = [
   {
-    question: "Unveiling the Truth of Liquidity Pools & Earn Over 20% APR. How Is This Possible?",
-    answer: "The high APR of liquidity pools comes from trading fees, impermanent loss compensation, yield farming incentives, and market volatility.",
+    question:
+      "Unveiling the Truth of Liquidity Pools & Earn Over 20% APR. How Is This Possible?",
+    answer:
+      "The high APR of liquidity pools comes from trading fees, impermanent loss compensation, yield farming incentives, and market volatility.",
   },
   {
     question: "What Is a Liquidity Pool?",
-    answer: "A liquidity pool is a smart contract holding two tokens that enables swaps using an AMM model.",
+    answer:
+      "A liquidity pool is a smart contract holding two tokens that enables swaps using an AMM model.",
   },
   {
     question: "What Are the Benefits of Liquidity Providers?",
@@ -18,11 +27,13 @@ const faqData: KnowledgeBaseEntry[] = [
   },
   {
     question: "What risks do liquidity providers face?",
-    answer: "Risks include impermanent loss, out-of-range liquidity, and asset imbalance.",
+    answer:
+      "Risks include impermanent loss, out-of-range liquidity, and asset imbalance.",
   },
   {
     question: "What is CoinPool?",
-    answer: "CoinPool is a non-custodial platform that simplifies liquidity provision.",
+    answer:
+      "CoinPool is a non-custodial platform that simplifies liquidity provision.",
   },
   {
     question: "How Do I Get Started with CoinPool?",
@@ -109,13 +120,13 @@ const faqData: KnowledgeBaseEntry[] = [
     answer: "Yes, integrates with protocols like Uniswap.",
   },
   {
-     question: "Send tokens",
+    question: "Send tokens",
     answer: "Yes, you can send tokens directly from the platform.",
-  }
+  },
 ];
 const KeyringCore = () => {
-
   const chainId = getChainId(config);
+  const [uploading, setUploading] = useState(false);
 
   const agent = new AgentCore({
     llm: {
@@ -125,7 +136,15 @@ const KeyringCore = () => {
     maxHistoryMessages: 40,
     debug: true,
     storage: localStorage, // ← truyền thẳng
-    // knowledgeBase: faqData
+    // knowledgeBase: faqData,
+    knowledgeBase: [],
+    vectorKB: {
+      enabled: true, // ← FLAG. false hoặc bỏ field = chạy như cũ.
+      minScore: 0.03,
+      // namespace: 'production',
+      // autoIngest: true,  // tự upsert knowledgeBase[] lên Upstash lần đầu
+    },
+    // promptCache: true,
   });
 
   useEffect(() => {
@@ -137,22 +156,53 @@ const KeyringCore = () => {
 
   // Set wallet context (simulates a connected wallet from the UI)
   agent.setUserContext({
-    walletAddress: "0x1Ac2890dB904dFa125e59448368fA2B4Ffcca29A",
+    walletAddress: "0x8d1B676508F7Bac3e574DFB022C0d1B74a0fcEC4",
     chain: chainId?.toString(),
   });
 
-  return (
-    <Input
-      placeholder="Type your message here..."
-      onPressEnter={async (e) => {
-        const input = (e.target as HTMLInputElement).value;
-        const response = await agent.chat(input);
-        // console.log("🚀 ~ KeyringCore ~ response:", response)
+  const uploadProps: UploadProps = {
+    accept: ".json,application/json",
+    showUploadList: false,
+    maxCount: 1,
+    beforeUpload: async (file) => {
+      setUploading(true);
+      try {
+        const json = await file.text();
+        const { count } = await ingestKnowledgeBase({ json });
+        if (count === 0) {
+          message.warning("File JSON rỗng");
+        } else {
+          message.success(`Đã upsert ${count} entries lên Upstash`);
+        }
+      } catch (err) {
+        console.error("Upload KB failed:", err);
+        message.error(
+          err instanceof Error ? err.message : "Upload thất bại"
+        );
+      } finally {
+        setUploading(false);
+      }
+      return Upload.LIST_IGNORE;
+    },
+  };
 
-        console.log("\n=== Answer ===");
-        console.log(response.answer);
-      }}
-    />
+  return (
+    <Space direction="vertical" style={{ width: "100%" }} size="middle">
+      <Upload {...uploadProps}>
+        <Button icon={<UploadOutlined />} loading={uploading}>
+          Upload KB JSON → Upstash
+        </Button>
+      </Upload>
+      <Input
+        placeholder="Type your message here..."
+        onPressEnter={async (e) => {
+          const input = (e.target as HTMLInputElement).value;
+          const response = await agent.chat(input);
+          console.log("\n=== Answer ===");
+          console.log(response.answer);
+        }}
+      />
+    </Space>
   );
 };
 
