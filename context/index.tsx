@@ -2,7 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createAppKit } from '@reown/appkit/react'
-import { mainnet, arbitrum, polygon, optimism, type AppKitNetwork, base, sepolia, bsc } from '@reown/appkit/networks'
+import { mainnet, arbitrum, polygon, optimism, type AppKitNetwork, base, sepolia, bsc, unichain, avalanche, linea } from '@reown/appkit/networks'
 import React, { type ReactNode } from 'react'
 import { cookieToInitialState, WagmiProvider, type Config } from 'wagmi'
 
@@ -19,7 +19,7 @@ if (!projectId) {
 // export const networks: [AppKitNetwork, ...AppKitNetwork[]] = [mainnet, arbitrum, polygon, optimism]
 // export const networks: [AppKitNetwork, ...AppKitNetwork[]] = [base, polygon]
 // export const networks: [AppKitNetwork, ...AppKitNetwork[]] = [ mainnet, sepolia]
-export const networks: [AppKitNetwork, ...AppKitNetwork[]] = [polygon, arbitrum, mainnet, optimism, bsc,base, sepolia]
+export const networks: [AppKitNetwork, ...AppKitNetwork[]] = [polygon, arbitrum, mainnet, optimism, bsc,base, sepolia, unichain, avalanche, linea]
 
 //Set up the Wagmi Adapter (Config)
 export const wagmiAdapter = new WagmiAdapter({

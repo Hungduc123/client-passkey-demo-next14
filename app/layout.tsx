@@ -29,7 +29,8 @@ export default function RootLayout({
 }>) {
   const cookies = headers().get("cookie");
   return (
-    <html lang="en">
+    <html lang="en"
+    >
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
