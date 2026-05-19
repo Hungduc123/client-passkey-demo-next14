@@ -8,7 +8,8 @@ import { isWeb3Injected } from "sdk-v2-egglegamewallet";
 import { useAccount, useSendTransaction } from "wagmi";
 import SignTypeData from "@/app/Components/SignTypeData";
 import CheckAllowance from "@/app/Components/CheckAllowance";
-import { ChatWidget, clearChat } from "chat-widget-sdk";
+import { ChatWidget, clearChat } from "keyring-agent-web";
+// import { ChatWidget, clearChat } from "chat-widget-sdk";
 import { getChainId } from "@wagmi/core";
 import { config } from "@/context";
 import KeyringCore from "@/app/Components/KeyringCore";
@@ -44,7 +45,7 @@ buttonSize:40
 
         }}
         modalConfig={{
-         isShowIcon:true
+         isShowIcon:false
         }}
         // customChatButton={
         //   <div
@@ -80,10 +81,10 @@ buttonSize:40
           // address: '0xaDe5fAbF51c9B46BfaDe4E20Ea4462E2337819c9' ,
           chainId: chainId,
         }}
-        additionalSuggestions={[
-          { icon: "🔥", text: "Pool WISE/ETH" },
-          { icon: "📊", text: "Xem vị thế của tôi" },
-        ]}
+        // additionalSuggestions={[
+        //   { icon: "🔥", text: "Pool WISE/ETH" },
+        //   { icon: "📊", text: "Xem vị thế của tôi" },
+        // ]}
         
         // chatTitle="MyChat Assistant MyChat AssistantMyChat AssistantMyChat AssistantMyChat AssistantMyChat AssistantMyChat AssistantMyChat AssistantMyChat AssistantMyChat Assistant"
         // welcomeMessage="Chào mừng!"
@@ -111,8 +112,8 @@ buttonSize:40
       />
       {isConnected && (
         <>
-          {/* <KeyringCore /> */}
-          <KeyringCore2/>
+          <KeyringCore />
+          {/* <KeyringCore2/> */}
           {/* <SendTransaction />
           <WriteContract />
           <SignMessage />
