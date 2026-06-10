@@ -14,6 +14,7 @@ import { getChainId } from "@wagmi/core";
 import { config } from "@/context";
 import KeyringCore from "@/app/Components/KeyringCore";
 import KeyringCore2 from "@/app/Components/KeyringCore2";
+import { WebsiteTrustAgent } from "keyring-agent-core";
 
 export function Profile() {
   const account = useAccount();
@@ -29,6 +30,26 @@ export function Profile() {
     window.ethereum?.providers,
   );
 
+  const listDomainTest=[
+  "https://pancakeswap.xyz",
+  "https://nft.keyring.app",
+ "https://smart.keyring.app",
+ "https://admin-airdropband.w3w.app",
+  "https://pancakeswap.com",
+  "https://pancekeswap.finance",
+  "https://consensys.chat",
+  "https://relay.xyz",
+    "https://myetherwellet.com",
+    "https://opensee.network",
+    "https://opensea.io",
+    "https://metamask.io",
+    "https://metamask.me",
+    "https://coinpool.app",
+    "https://eggle.xyz",
+    "https://infurarpc.com"
+    
+  ]
+
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center gap-4">
       <button
@@ -38,14 +59,49 @@ export function Profile() {
       >
         Clear Chat
       </button>
+      {/* <button onClick={async () => {
+        // test WebsiteTrustAgent
+        const a = new WebsiteTrustAgent({}); // hoặc {} dùng proxy mặc định
+// const res = await a.chat({ url: 'https://pancakeswap.xyz/', isMarkOfficial: false, language: 'vi' });
+// const res = await a.chat({ url: 'https://consensys.chat/', isMarkOfficial: false, language: 'vi' });
+const res = await a.chat({ url: 'https://relay.xyz/', isMarkOfficial: false, language: 'vi' });
+
+        console.log("🚀 ~ Profile ~ res:", res)
+
+// res.answer    → mô tả "trang này là trang gì"
+// res.extraData → { currentSite, copiedSite?, phishingReason?, isPhishing, isReputable }
+      }}>
+        test WebsiteTrustAgent
+      </button> */}
+      {listDomainTest.map((domain) => (
+        <button key={domain} onClick={async () => {
+          // test WebsiteTrustAgent
+          const a = new WebsiteTrustAgent({debug: true}); // hoặc {} dùng proxy mặc định
+          const res = await a.chat({ url: domain, isMarkOfficial: false, language: 'vi', });
+          console.log(`🚀 ~ Profile ~ res for ${domain}:`, res)
+        }}>
+          Test {domain}
+        </button>
+      ))}
       <appkit-button />
       <ChatWidget
+      // language="ja"
+        rpcUrls={{
+          1: "https://ethereum-rpc.publicnode.com",
+          10: "https://mainnet.optimism.io",
+          // 10: "https://nft-demo.keyring.app/api/quickNodeRpc?chainType=optimism",
+          56: "https://bsc-dataseed.binance.org",
+          137: "https://polygon-bor-rpc.publicnode.com",
+          8453: "https://mainnet.base.org",
+          42161: "https://arb1.arbitrum.io/rpc",
+          43114: "https://avalanche-c-chain-rpc.publicnode.com",
+          59144: "https://rpc.linea.build",
+        }}
         theme={{
-buttonSize:40
-
+          buttonSize: 40,
         }}
         modalConfig={{
-         isShowIcon:false
+          isShowIcon: false,
         }}
         // customChatButton={
         //   <div
@@ -78,6 +134,8 @@ buttonSize:40
           address: account.address || "",
           // address: '0x8D1b676508f7BaC3e574dfb022c0D1B74A0FCEc5',
           // address: '0x9E172941dC11B268afE585C95384Cd912377090C',
+          // address: '0x91f42b5732951c4c3594e4e3a6f4680ea79c84b0',
+          // address: '0x7511bF75DF342Ca11B98a0dA92BcB9DE5062d0DC',
           // address: '0xaDe5fAbF51c9B46BfaDe4E20Ea4462E2337819c9' ,
           chainId: chainId,
         }}
@@ -85,7 +143,7 @@ buttonSize:40
         //   { icon: "🔥", text: "Pool WISE/ETH" },
         //   { icon: "📊", text: "Xem vị thế của tôi" },
         // ]}
-        
+
         // chatTitle="MyChat Assistant MyChat AssistantMyChat AssistantMyChat AssistantMyChat AssistantMyChat AssistantMyChat AssistantMyChat AssistantMyChat AssistantMyChat Assistant"
         // welcomeMessage="Chào mừng!"
         // buttonIcon="/custom-icon.png"
@@ -112,7 +170,7 @@ buttonSize:40
       />
       {isConnected && (
         <>
-          <KeyringCore />
+          {/* <KeyringCore /> */}
           {/* <KeyringCore2/> */}
           {/* <SendTransaction />
           <WriteContract />
